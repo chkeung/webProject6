@@ -70,9 +70,12 @@
         </c:if>
         <a href="<c:url value="/comment/addComment/${ticket.id}" />">Add Comment</a><br/><br/>
         <a href="<c:url value="/comment/viewComment/${ticket.id}" />">View Comment</a><br/><br/>
-        <c:if test="${ticket.status eq "available"}">
-            <a href="<c:url value="/bidding/bidPrice/${ticket.id}" />">Bid this item</a><br/><br/>
-        </c:if>
+        <security:authorize access="hasRole('ADMIN') or principal.username!='${ticket.customerName}'">
+            <c:if test="${ticket.status eq "available"}">
+                <a href="<c:url value="/bidding/bidPrice/${ticket.id}" />">Bid this item</a><br/><br/>
+            </c:if>
+        </security:authorize>
+
 
         <a href="<c:url value="/item" />">Return to list tickets</a>
     </body>
