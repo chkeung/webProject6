@@ -11,6 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.RedirectView;
 import ouhk.comps380f.dao.TicketUserRepository;
+import ouhk.comps380f.dao.UpdateUserRepository;
+import ouhk.comps380f.model.Comment;
 import ouhk.comps380f.model.TicketUser;
 
 @Controller
@@ -19,6 +21,9 @@ public class TicketUserController {
 
     @Resource
     TicketUserRepository ticketUserRepo;
+    
+    @Resource
+    private UpdateUserRepository gbEntryRepo; 
 
     @RequestMapping(value = {"", "list"}, method = RequestMethod.GET)
     public String list(ModelMap model) {
@@ -70,6 +75,18 @@ public class TicketUserController {
                 form.getRoles()
         );
         ticketUserRepo.save(user);
+        return new RedirectView("/user/list", true);
+    }
+    
+    @RequestMapping(value="edit/{username}", method=RequestMethod.GET)
+    public ModelAndView editCommentForm(ModelMap model) {
+        model.addAttribute("ticketUsers", ticketUserRepo.findAll());
+        return new ModelAndView("updateUser", "command", new TicketUser());
+    }
+    
+    @RequestMapping(value="edit/{username}", method=RequestMethod.POST)
+    public View addCommentHandle(@PathVariable("username") String username, TicketUser tt) {
+        gbEntryRepo.updateEntry(tt, username);
         return new RedirectView("/user/list", true);
     }
 
