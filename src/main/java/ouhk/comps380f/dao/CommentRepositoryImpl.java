@@ -20,7 +20,7 @@ public class CommentRepositoryImpl implements CommentRepository {
     DataSource dataSource;
 
     private static final String SQL_INSERT_ENTRY
-            = "insert into guestbook (name, message, date, customer) values (?, ?, ?, ?)";
+            = "insert into comment (name, message, date, customer) values (?, ?, ?, ?)";
 
     @Override
     public void addEntry(Comment entry) {
@@ -53,7 +53,7 @@ public class CommentRepositoryImpl implements CommentRepository {
     }
 
     private static final String SQL_UPDATE_ENTRY
-            = "update guestbook set name = ?, message = ?, date = ? where id = ?";
+            = "update comment set name = ?, message = ?, date = ? where id = ?";
 
     @Override
     public void updateEntry(Comment entry) {
@@ -82,7 +82,7 @@ public class CommentRepositoryImpl implements CommentRepository {
     }
 
     private static final String SQL_SELECT_ALL_ENTRY
-            = "select id, name, message, date, customer from guestbook";
+            = "select id, name, message, date, customer from comment";
 
     @Override
     public List<Comment> listEntries(String name) {
@@ -128,7 +128,7 @@ public class CommentRepositoryImpl implements CommentRepository {
     }
 
     private static final String SQL_SELECT_ENTRY
-            = "select id, name, message, date from guestbook where id = ?";
+            = "select id, name, message, date from comment where id = ?";
 
     @Override
     public Comment getEntryById(Integer id) {
@@ -168,7 +168,7 @@ public class CommentRepositoryImpl implements CommentRepository {
     }
     
     private static final String SQL_SELECT_ENTRY2
-            = "select id, name, message, date from guestbook where name like '%?'";
+            = "select id, name, message, date from comment where name like '%?'";
 
     @Override
     public Comment getEntryByName(String name) {
@@ -208,7 +208,7 @@ public class CommentRepositoryImpl implements CommentRepository {
     }
 
     private static final String SQL_DELETE_ENTRY
-            = "delete from guestbook where id = ?";
+            = "delete from comment where id = ?";
 
     @Override
     public void removeEntryById(Integer id) {

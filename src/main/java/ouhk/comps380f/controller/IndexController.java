@@ -21,7 +21,7 @@ public class IndexController {
     /*@RequestMapping("login")
     public String login(HttpServletRequest request) {
         if(request.isUserInRole("ROLE_ADMIN") || request.isUserInRole("ROLE_USER") ){
-            return "redirect:/ticket/list";
+            return "redirect:/item/list";
         }else{
             return "login";
         }
