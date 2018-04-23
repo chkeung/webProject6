@@ -5,11 +5,11 @@ import java.util.Date;
 
 public class Bidding implements Serializable {
 
-    Integer id;
-    String ticket_id;
+    Integer id;    
     String price;
     String customerName;
     Date date;
+    String ticket_id;
 
     public Integer getId() {
         return id;

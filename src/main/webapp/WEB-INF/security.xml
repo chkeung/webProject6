@@ -39,8 +39,7 @@
 
     <http auto-config="true">
         <intercept-url pattern="/comment/delete" access="hasRole('ADMIN')" />
-        <intercept-url pattern="/comment/addComment/**" access="hasAnyRole('USER','ADMIN')" /> 
-        <intercept-url pattern="/comment/viewComment/**" access="hasAnyRole('USER','ADMIN')" />
+        <intercept-url pattern="/comment/addComment/**" access="hasAnyRole('USER','ADMIN')" />    
         <intercept-url pattern="/bidding/**" access="hasAnyRole('USER','ADMIN')" />         
         <intercept-url pattern="/item/delete/**" access="hasRole('ADMIN')" />
         <intercept-url pattern="/item/**" access="hasAnyRole('USER','ADMIN')" />
