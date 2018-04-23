@@ -36,9 +36,9 @@
                     <form:option value="${entry.customerName}"><c:out value="${entry.customerName}" /></form:option>                   
                 </c:forEach>
             </form:select><br/><br/>
-            <c:forEach var="entry" items="${entries}">                
+            <!--<c:forEach var="entry" items="${entries}">                
                 <c:out value="${entry.customerName}" />
-            </c:forEach>
+            </c:forEach>-->
             <br/>
             <c:if test="${fn:length(ticket.attachments) > 0}">
                 <b>Attachments:</b><br/>
